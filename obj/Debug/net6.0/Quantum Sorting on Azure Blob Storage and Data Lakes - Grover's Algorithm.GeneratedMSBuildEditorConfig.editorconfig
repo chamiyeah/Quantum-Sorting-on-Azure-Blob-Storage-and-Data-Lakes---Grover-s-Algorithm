@@ -1,0 +1,11 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Quantum_Sorting_on_Azure_Blob_Storage_and_Data_Lakes_-_Grover's_Algorithm
+build_property.ProjectDir = C:\Users\Pakaya\Documents\quantum\Quantum Sorting on Azure Blob Storage and Data Lakes - Grover's Algorithm\
