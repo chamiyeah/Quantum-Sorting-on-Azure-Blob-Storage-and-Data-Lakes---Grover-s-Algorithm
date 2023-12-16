@@ -41,3 +41,23 @@ operation DiffusionOperator(qubits : Qubit[]) : Unit is Adj {
     ApplyPauliXor([PauliX(q) | q in qubits], qubits);
     H(qubits);
 }
+```
+### Grover`s Algorithm
+
+The `GroverAlgorithm` operation runs Grover's iterations to search for the marked item.
+
+```qsharp
+operation GroverAlgorithm(numIterations : Int, markedItem : Int, qubits : Qubit[]) : Unit {
+    // Initialize the qubits.
+    ApplyToEach(H, qubits);
+
+    // Apply Grover iterations.
+    for (iteration in 1 .. numIterations) {
+        MarkingOracle(qubits);
+        DiffusionOperator(qubits);
+    }
+}
+```
+
+
+
