@@ -1,0 +1,36 @@
+# Azure Quantum Workspace Creation
+- script: |
+    az extension add --name quantum
+    az quantum workspace create --name YourQuantumWorkspaceName --resource-group YourResourceGroupName --location eastus
+  displayName: 'Create Azure Quantum Workspace'
+
+# Quantum Development Kit (QDK) Application Setup
+- script: |
+    mkdir C:\YourPath\YourQDKAppName
+    copy /Y \\YourNetworkPath\YourQDKAppFolder\*.* C:\YourPath\YourQDKAppName
+    cd C:\YourPath\YourQDKAppName
+    az quantum target create --target-id workspace --resource-id "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Quantum/Workspaces/{workspace-name}" --resource-group YourResourceGroupName
+    az quantum execute --location eastus --resource-id "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Quantum/Workspaces/{workspace-name}" --code C:\YourPath\YourQDKAppName\YourQDKCodeFolder\YourQDKCodeName.qs
+  displayName: 'Set up Quantum Development Kit (QDK) application'
+
+# Storage Account Connection String Setup
+- script: |
+    az storage account keys list --resource-group YourResourceGroupName --account-name YourStorageAccountName --query '[0].value' --output tsv
+  displayName: 'Get Storage Account Key'
+  env:
+    STORAGE_ACCOUNT_KEY: $(az storage account keys list --resource-group YourResourceGroupName --account-name YourStorageAccountName --query '[0].value' --output tsv)
+
+# Deploy Q# Application to Azure Quantum
+- script: |
+    az quantum job submit --name YourQuantumJobName --code C:\YourPath\YourQDKAppName\YourQDKCodeFolder\YourQDKCodeName.qs --output-dir .\output --shots 1000
+  displayName: 'Deploy Q# application to Azure Quantum'
+
+# Retrieve Quantum Job Result
+- script: |
+    az quantum job result --job-id YourJobId --output table
+  displayName: 'Retrieve Quantum Job Result'
+
+# Download Blob Content
+- script: |
+    az storage blob download --account-name YourStorageAccountName --account-key $(STORAGE_ACCOUNT_KEY) --container-name YourBlobContainerName --name YourBlobName --type block --file YourLocalFile.txt
+  displayName: 'Download Blob Content'
