@@ -75,11 +75,20 @@ operation RunGroverAlgorithm() : Unit {
 
         GroverAlgorithm(numIterations, markedItem, qubits);
 ```
-### SQL Automation Script
+## Automated Deployement Pipeline - Azure
+
+` Audomated Deplyoment Pipeline.yaml `
+
+The Azure Quantum Workspace creation and QDK Application Setup steps are combined into separate script tasks.
+The Storage Account Key is obtained and exported as an environment variable.
+The steps for deploying the Q# application to Azure Quantum, retrieving the quantum job result, and downloading blob content are included.
+
+## SQL Automation Script
+`Automated Deployement.ps1`
 
 The SQL automation script automates the deployment of the Q# application and the execution of the Quantum Grover algorithm on Azure Quantum. Ensure you have the Azure CLI installed and authenticated before running the script.
 
-#### Script Overview
+### Script Overview
 
 #### Azure Quantum Workspace Creation:
 The script creates an Azure Quantum Workspace if it doesn't exist.
