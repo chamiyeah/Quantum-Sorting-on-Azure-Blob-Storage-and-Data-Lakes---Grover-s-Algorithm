@@ -12,9 +12,11 @@ Before running the quantum algorithm, ensure you have the following:
 
 - **Quantum Development Kit (QDK)**: Install the Quantum Development Kit, which includes the Q# compiler and runtime. You can download it from [here](https://learn.microsoft.com/en-us/azure/quantum/).
 
+
 ## Quantum Algorithm Overview
 
 The Quantum Grover algorithm is designed to search for a marked item in an unsorted database. In this example, the marked item is represented by the state |1⟩. The algorithm uses Grover's iterations to amplify the amplitude of the marked state, increasing the probability of measuring the marked item.
+Please note that this example is a proof of concept prototype and assumes a marked item represented by |1⟩. The actual implementation of the oracle will depend on how your database items are encoded in quantum states. 
 
 ## Q# Code Breakdown
 
