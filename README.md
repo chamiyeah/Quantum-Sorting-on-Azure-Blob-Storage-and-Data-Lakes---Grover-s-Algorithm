@@ -2,7 +2,7 @@
 
 This repository contains a Quantum Grover algorithm implemented in Q# and integrated with Azure Blob Storage. The algorithm is designed to search for a marked item in an unsorted Azure Blob Storage, using Grover's quantum search algorithm.
 
-## Prerequisites
+### Prerequisites
 
 Before running the quantum algorithm, ensure you have the following:
 
